@@ -1,0 +1,73 @@
+/* public/listRegistrations.css - Styles for admin's view all registrations page */
+
+.registration-list-admin table {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.registration-list-admin th,
+.registration-list-admin td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.registration-list-admin th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.registration-list-admin tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.registration-list-admin tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.no-registrations-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: var(--light-text-color);
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+}
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    gap: 15px;
+}
+
+.pagination a.btn-sm {
+    background-color: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+}
+
+.pagination a.btn-sm:hover {
+    background-color: #0056b3;
+}
+
+.pagination span {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Responsive table adaptation (from global.css, refined for this view if needed) */
+@media (max-width: 768px) {
+    .registration-list-admin table {
+        border: none;
+    }
+    .registration-list-admin td:nth-of-type(1):before { content: "Reg ID:"; }
+    .registration-list-admin td:nth-of-type(2):before { content: "Student:"; }
+    .registration-list-admin td:nth-of-type(3):before { content: "Event Name:"; }
+    .registration-list-admin td:nth-of-type(4):before { content: "Event Date:"; }
+    .registration-list-admin td:nth-of-type(5):before { content: "Reg Date:"; }
+}
+

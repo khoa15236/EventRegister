@@ -1,0 +1,126 @@
+/* public/navbar.css - Styles for the navigation bar */
+
+.navbar {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.navbar-brand a {
+    color: white;
+    font-size: 1.8em;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand a:hover {
+    color: var(--accent-color);
+}
+
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav li {
+    margin-left: 25px;
+}
+
+.navbar-nav li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05em;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav li a:hover {
+    color: var(--accent-color);
+}
+
+/* Underline effect on hover */
+.navbar-nav li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.navbar-nav li a:hover::after {
+    width: 100%;
+}
+
+.navbar-nav li.navbar-user {
+    color: white;
+    font-weight: 400;
+    margin-right: 25px; /* Space between user info and logout button */
+    font-size: 1em;
+}
+
+.navbar-nav li .logout-btn {
+    background-color: var(--danger-color);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-nav li .logout-btn:hover {
+    background-color: #c82333;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .navbar-brand {
+        margin-bottom: 15px;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .navbar-nav li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: left;
+    }
+
+    .navbar-nav li a {
+        display: block;
+        padding: 10px 0;
+    }
+
+    .navbar-nav li.navbar-user {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 10px; /* Add bottom margin */
+    }
+
+    .navbar-nav li .logout-btn {
+        width: 100%; /* Make logout button full width */
+        text-align: center;
+    }
+}
+

@@ -1,0 +1,25 @@
+<!-- views/partials/navbar.ejs - Navigation bar partial -->
+
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a href="/">FPT Event System</a>
+    </div>
+    <ul class="navbar-nav">
+        <% if (user) { %>
+            <% if (user.role === 'student') { %>
+                <li><a href="/events/register">Register for Event</a></li>
+                <li><a href="/registrations/cancel">My Registrations</a></li>
+            <% } else if (user.role === 'admin') { %>
+                <li><a href="/registrations/list">View All Registrations</a></li>
+                <li><a href="/registrations/search">Search Registrations</a></li>
+                <!-- Admin could have more links like Manage Events etc. -->
+            <% } %>
+            <li class="navbar-user">Logged in as: <strong><%= user.username %> (<%= user.role %>)</strong></li>
+            <li><a href="/auth/logout" class="logout-btn">Logout</a></li>
+        <% } else { %>
+            <li><a href="/auth/login">Login</a></li>
+            <li><a href="/auth/register">Register</a></li> <!-- Optional: for initial setup -->
+        <% } %>
+    </ul>
+</nav>
+

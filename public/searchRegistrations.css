@@ -1,0 +1,91 @@
+/* public/searchRegistrations.css - Styles for admin's search registrations by date page */
+
+.search-form {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: #fcfcfc;
+}
+
+.search-form .form-group {
+    flex: 1; /* Distribute space evenly */
+    margin-bottom: 0; /* Remove default margin */
+}
+
+.search-form .form-group label {
+    margin-bottom: 5px;
+}
+
+.search-form .btn-primary {
+    padding: 10px 25px;
+    height: 44px; /* Align button with input fields */
+}
+
+.search-results-list table {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.search-results-list th,
+.search-results-list td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.search-results-list th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.search-results-list tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.search-results-list tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.no-results-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: var(--light-text-color);
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+}
+
+/* Responsive adjustments for search form */
+@media (max-width: 768px) {
+    .search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-form .form-group {
+        width: 100%;
+    }
+
+    .search-form .btn-primary {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Responsive table adaptation (from global.css, refined for this view if needed) */
+@media (max-width: 768px) {
+    .search-results-list table {
+        border: none;
+    }
+    .search-results-list td:nth-of-type(1):before { content: "Reg ID:"; }
+    .search-results-list td:nth-of-type(2):before { content: "Student:"; }
+    .search-results-list td:nth-of-type(3):before { content: "Event Name:"; }
+    .search-results-list td:nth-of-type(4):before { content: "Event Date:"; }
+    .search-results-list td:nth-of-type(5):before { content: "Reg Date:"; }
+}
+

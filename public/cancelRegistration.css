@@ -1,0 +1,59 @@
+/* public/cancelRegistration.css - Styles for student's registered events list */
+
+.registration-list table {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.registration-list th,
+.registration-list td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.registration-list th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.registration-list tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.registration-list tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.registration-list td form {
+    margin: 0;
+    display: inline-block; /* To keep button aligned if multiple actions */
+}
+
+.registration-list .btn-danger {
+    padding: 8px 12px;
+    font-size: 0.9em;
+}
+
+.no-registrations-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: var(--light-text-color);
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+}
+
+/* Responsive table adaptation (from global.css, refined for this view if needed) */
+@media (max-width: 768px) {
+    .registration-list table {
+        border: none;
+    }
+    .registration-list td:nth-of-type(1):before { content: "Reg ID:"; }
+    .registration-list td:nth-of-type(2):before { content: "Event Name:"; }
+    .registration-list td:nth-of-type(3):before { content: "Event Date:"; }
+    .registration-list td:nth-of-type(4):before { content: "Reg Date:"; }
+    .registration-list td:nth-of-type(5):before { content: "Action:"; }
+}
+

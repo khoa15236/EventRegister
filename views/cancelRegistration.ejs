@@ -1,0 +1,61 @@
+<!-- views/cancelRegistration.ejs - Student Event Unregistration Interface -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="/navbar.css">
+    <link rel="stylesheet" href="/cancelRegistration.css">
+</head>
+<body>
+    <%- include('partials/navbar', { user: user }) %>
+
+    <div class="container">
+        <h2><%= title %></h2>
+        <%- include('partials/message') %>
+
+        <% if (registrations.length > 0) { %>
+            <div class="registration-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Registration ID</th>
+                            <th>Event Name</th>
+                            <th>Event Date</th>
+                            <th>Registration Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% registrations.forEach(reg => { %>
+                            <tr>
+                                <td><%= reg._id %></td>
+                                <td><%= reg.eventId ? reg.eventId.name : 'N/A' %></td>
+                                <td><%= reg.eventId ? new Date(reg.eventId.date).toLocaleDateString() : 'N/A' %></td>
+                                <td><%= new Date(reg.registrationDate).toLocaleString() %></td>
+                                <td>
+                                    <form action="/registrations/cancel/<%= reg._id %>" method="POST" onsubmit="return confirmCancellation();">
+                                        <button type="submit" class="btn btn-danger">Cancel Registration</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        <% } else { %>
+            <p class="no-registrations-message">You have not registered for any events yet.</p>
+        <% } %>
+    </div>
+
+    <script>
+        function confirmCancellation() {
+            return confirm('Are you sure you want to cancel this registration?');
+        }
+    </script>
+</body>
+</html>
+

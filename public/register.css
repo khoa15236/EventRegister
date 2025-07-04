@@ -1,0 +1,31 @@
+/* public/css/register.css */
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e2e8f0;
+}
+
+.register-container .card {
+    width: 100%;
+    max-width: 450px; /* Slightly wider for role select */
+    padding: 2rem;
+    text-align: center;
+}
+
+.register-container h2 {
+    margin-bottom: 1.5rem;
+    color: #2d3748;
+    font-size: 1.75rem;
+}
+
+.register-container .form-group {
+    text-align: left;
+}
+
+.register-container .btn {
+    width: 100%;
+    margin-top: 1.5rem;
+}
